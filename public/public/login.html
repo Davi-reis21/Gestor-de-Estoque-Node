@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+
+    <script>
+
+        function Logar() {
+
+            const info = {
+                "cpf": document.getElementById("cpf").value,
+                "senha": document.getElementById("senha").value
+            }
+
+            console.log(info)
+
+            const config = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(info)
+            }
+
+            {
+                fetch('/validarlogin', config)
+                    .then(response => response.text())
+                    .then(resposta => {
+                        window.location.href = resposta;
+                    })
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="login-form">
+        <div class="form">
+            <img src="fotos/logo.png" alt="Logo">
+            <div class="login-card">
+                <h1>Faça seu Login</h1>
+                <h2>coloque seus dados!</h2>
+            </div>
+    
+    
+    
+                <div class="cpf">
+                    <p>CPF:</p>
+                    <input placeholder="Digite seu CPF" id="cpf" >
+                </div>
+    
+                <div class="senha">
+                    <P>SENHA:</P>
+                    <input type="password" placeholder="Senha" id="senha">
+                </div>
+                
+                <a href="cadastro.html">faça seu cadastro!</a>
+                <button onclick="Logar()">Login</button>
+    </div>
+
+    </div>
+</body>
+
+</html>

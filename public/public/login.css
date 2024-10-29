@@ -1,0 +1,46 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.form img{
+    width: 210px;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 250px;
+}
+.login-form input{
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+.login-form .cpf,
+.senha, input{
+    width: 230px;
+}
+.login-form .cpf,
+.senha, p{
+    font-size: 14px;
+}
+.login-form a{
+    margin: 10px 0;
+}
+.login-form button{
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+}

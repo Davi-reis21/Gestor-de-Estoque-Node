@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro</title>
+
+    <script>
+
+        function Cadastrar() {
+            const info = {
+                "nome": document.getElementById("nome").value,
+                "cpf": document.getElementById("cpf").value,
+                "matricula": document.getElementById("matricula").value,
+                "senha": document.getElementById("senha").value
+
+            }
+
+            const config = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(info)
+
+
+            }
+
+            fetch("/addusuario", config)
+                .then(response => response.json())
+                .then(resposta => {
+                    alert(resposta);
+                })
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+
+</head>
+
+<body>
+    <div class="form">
+        <img src="fotos/logo.png" alt="Logo">
+        <div class="cadastro-card">
+            <h1>Faça seu cadastro</h1>
+            <h2>coloque seus dados!</h2>
+        </div>
+
+        <div class="nome">
+            <p>NOME:</p>
+            <input placeholder="Digite seu Nome" id="nome">
+        </div>
+        <div class="cpf">
+            <P>CPF:</P>
+            <input placeholder="Digite seu CPF" id="cpf">
+        </div>
+        <div class="matricula">
+            <P>N° DE MATRÍCULA:</P>
+            <input placeholder="Digite seu Nº de Matrícula" id="matricula">
+        </div>
+        <div class="senha">
+            <P>SENHA:</P>
+            <input placeholder="Crie sua Senha" id="senha">
+        </div>
+        <a href="login.html">faça seu login!</a>
+        <button onclick="Cadastrar()">Cadastrar</button>
+
+    </div>
+</body>
+
+</html>
