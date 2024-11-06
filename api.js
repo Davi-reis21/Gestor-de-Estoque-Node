@@ -64,7 +64,7 @@ app.post('/addusuario', function (req, res) {
     var nome = req.body.nome;
     var cpf = req.body.nome;
     var matricula = req.body.matricula;
-    var senha = req.body.nome
+    var senha = req.body.nome;
 
     var sql = "INSERT INTO USUARIOS (NOME, CPF, MATRICULA, SENHA) VALUES (?, ?, ?, ?)"
 
