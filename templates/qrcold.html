@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <title>Gerador de QR Code</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de QR Code</h1>
+        <div class="form-group">
+             <label for="Drop_nome">Identificação:</label>
+            <select id="Drop_nome" class="form-control">
+                <option value="">Identificação:</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Drop_salas">Selecione a sala:</label>
+            <select id="Drop_salas" class="form-control">
+                <option value="">Selecione a sala</option>
+            </select>
+        </div>
+        <button id="gerarQrCode" onclick="generateQRCode()">Gerar QR Code</button>
+        <canvas id="qrcode"></canvas>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        // Carregar identificações
+        fetch('/Nomes')
+            .then(response => response.json())
+            .then(item => {
+                for(var x = 0; x < item.length; x++){
+                    $("#Drop_nome").append(`<option value="${item[x].NOME}">${item[x].NOME}</option>`);
+                }
+            });
+
+        // Carregar salas
+        fetch('/Turmas')
+            .then(response => response.json())
+            .then(item => {
+                for(var x = 0; x < item.length; x++){
+                    $("#Drop_salas").append(`<option value="${item[x].PORTA_SALA}">${item[x].PORTA_SALA}</option>`);
+                }
+            });
+
+
+		 
+        function generateQRCode() {
+            const x = document.getElementById('Drop_nome').value;
+            const y = document.getElementById('Drop_salas').value;
+            const qr_json = `{"Nome": "${x}", "Turma": "${y}"}`;
+            const text = qr_json;
+            const canvas = document.getElementById('qrcode');
+            
+            // Aumenta o tamanho do QR Code ajustando a largura
+            QRCode.toCanvas(canvas, text, { width: 350 }, function (error) {
+                if (error) console.error(error);
+                console.log('QR code gerado!');
+            });
+        }
+
+
+		 
+    </script>
+</body>
+</html>

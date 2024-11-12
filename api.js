@@ -82,4 +82,21 @@ app.post('/addusuario', function (req, res) {
 
 
 
+app.get("/consultar/:param", (req, res) => {
+
+
+    var query = "SELECT * FROM PRODUTOS WHERE CODIGO = ?";
+
+    db.all(query, [req.params.codigo], (err, rows) => {
+        if (err) res.send(err);
+        else res.json(rows);
+    })
+
+    
+})
+
+
+
+
+
 app.listen(3000, console.log('Rodando..., http://localhost:2000'))
