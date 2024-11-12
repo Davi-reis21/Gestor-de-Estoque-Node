@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.page-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(28, 103, 189);
+    gap: 10px;
+    width: 100%;
+}
+.chose-page{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 100px;
+}
+.chose-page button a{
+font-size: 24px;
+text-decoration: none;
+color: black;
+}
+.chose-page button{
+    background-color: white;
+    border-radius: 4px;
+}
+
+#left{
+    font-size: 24px;
+    background-color: red;
+    color:white;
+}
