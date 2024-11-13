@@ -28,6 +28,25 @@ function Criar_tabela() {
 //Criar_tabela()
 
 
+
+function Produto_tabela() {
+    var query = "CREATE TABLE IF NOT EXISTS PRODUTOS(";
+    query += "ID INTEGER PRIMARY KEY AUTOINCREMENT,";
+    query += "NOME VARCHAR,";
+    query += "QUANTIDADE VARCHAR,";
+    query += "PRECO REAL,";
+    query += "MATRICULA INT,";
+    query += "SENHA VARCHAR)";
+
+    db.run(query, (err) => {
+        if (err) console.log(err)
+        else console.log('Tabela Criada com Sucesso!')
+    });
+}
+
+//Produto_tabela()
+
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/login.html'))
 })
@@ -75,6 +94,27 @@ app.post('/addusuario', function (req, res) {
 
     })
 
+})
+
+
+app.post("/addprodutos", function (req, res) {
+
+    console.log(req.body);
+
+    var nome = req.body.nome;
+    var quantidade = req.body.quantidade;
+    var preco = req.body.preco;
+    var codigo = req.body.codigo
+    var marca = req.body.marca;
+    var categoria = req.body.categoria;
+    var peso = req.body.peso;
+
+    var sql = 'INSERT INTO PRODUTOS (NOME, QUANTIDADE, PRECO, CODIGO, MARCA, CATEGORIA, PESO) VALUES (?, ?, ?, ?, ?, ?, ?)'
+
+    db.run(sql, [nome, quantidade, preco, codigo, marca, categoria, peso], (err) => {
+        if (err) res.send(err)
+        else res.send("Produto Cadastrado!")
+    })
 })
 
 

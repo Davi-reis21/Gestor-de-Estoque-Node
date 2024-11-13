@@ -1,0 +1,54 @@
+ <script>
+
+
+        function Cadastrar() {
+
+            const info = {
+
+                "nome": document.getElementById("nome").value,
+                "quantidade": document.getElementById("quantidade").value,
+                "preco": document.getElementById("preco").value,
+                "codigo": document.getElementById("codigo").value,
+                "marca": document.getElementById("marca").value,
+                "categoria": document.getElementById("categoria").value,
+                "peso": document.getElementById("peso").value
+
+            }
+
+            const config = {
+
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(info)
+
+
+
+            }
+
+
+            fetch('/addprodutos', config)
+                .then(response => response.json())
+                .then(resposta => {
+                    alert(resposta)
+                })
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
