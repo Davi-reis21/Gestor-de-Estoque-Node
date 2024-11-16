@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <title>Gerador de QR Code</title>
-
+    <link rel="stylesheet" href="QR-Code.css">
 </head>
 <body>
     <div class="container">
         <h1>Gerador de QR Code</h1>
         <div class="form-group">
-             <label for="Drop_nome">Identificação:</label>
+            <label for="Drop_nome">Identificação:</label>
             <select id="Drop_nome" class="form-control">
                 <option value="">Identificação:</option>
             </select>
         </div>
         <div class="form-group">
             <label for="Drop_salas">Selecione a sala:</label>
-            <select id="Drop_salas" class="form-control">
+            <select id="Drop_salas class="form-control">
                 <option value="">Selecione a sala</option>
             </select>
         </div>
         <button id="gerarQrCode" onclick="generateQRCode()">Gerar QR Code</button>
         <canvas id="qrcode"></canvas>
     </div>
-
+    
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         // Carregar identificações
@@ -47,7 +47,7 @@
             });
 
 
-		 
+		
         function generateQRCode() {
             const x = document.getElementById('Drop_nome').value;
             const y = document.getElementById('Drop_salas').value;
@@ -63,7 +63,7 @@
         }
 
 
-		 
+	
     </script>
 </body>
 </html>
